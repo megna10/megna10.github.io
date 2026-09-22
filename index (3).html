@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Megna Pillarisetti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F5EF;
+  --ink:#1B2430;
+  --ink-soft:#4A5568;
+  --blue:#2E4374;
+  --copper:#A8592E;
+  --line:#C7C1AE;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  line-height:1.6;
+}
+.wrap{max-width:680px;margin:0 auto;padding:56px 24px 100px;}
+
+nav.top{
+  display:flex; gap:22px;
+  margin-bottom:48px;
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:500; font-size:.92rem;
+}
+nav.top a{color:var(--ink-soft); text-decoration:none; padding-bottom:2px;}
+nav.top a.active{color:var(--ink); border-bottom:2px solid var(--copper);}
+nav.top a:hover{color:var(--copper);}
+
+.tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;
+  color:var(--paper);
+  background:var(--blue);
+  padding:2px 7px;
+  border-radius:2px;
+  display:inline-block;
+  margin-bottom:16px;
+}
+
+.avatar{
+  width:140px; height:140px;
+  border:1.5px solid var(--ink);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700; font-size:1.6rem;
+  color:var(--blue);
+  background:repeating-linear-gradient(135deg, var(--paper) 0 6px, #EFEADD 6px 12px);
+  margin-bottom:22px;
+  overflow:hidden;
+}
+.avatar img{width:100%; height:100%; object-fit:cover; display:block;}
+
+h1{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;
+  font-size:2.6rem;
+  letter-spacing:-.01em;
+  margin-bottom:6px;
+}
+.role{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.05rem;
+  color:var(--blue);
+  font-weight:500;
+  margin-bottom:28px;
+}
+
+.bio{font-size:1.02rem; color:var(--ink); max-width:58ch;}
+.bio p{margin-bottom:18px;}
+.bio a{color:var(--copper); text-decoration:none; border-bottom:1px solid var(--copper);}
+.bio a:hover{opacity:.75;}
+
+.contact{
+  margin-top:36px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+  display:flex; flex-wrap:wrap; gap:14px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.82rem;
+}
+.contact a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+.contact a:hover{border-color:var(--copper); color:var(--copper);}
+
+footer{
+  margin-top:48px; padding-top:18px;
+  border-top:1px solid var(--line);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.76rem; color:var(--ink-soft);
+}
+
+@media(max-width:520px){
+  h1{font-size:2rem;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="top">
+    <a href="index.html" class="active">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="resume.html">Resume</a>
+  </nav>
+
+  <div class="avatar"><img src="photo.jpg" alt="Megna Pillarisetti"></div>
+  <div class="tag">ABOUT</div>
+  <h1>Hi, I'm Megna Pillarisetti.</h1>
+  <div class="role">Electrical Engineering &amp; Computing — MIT</div>
+
+  <div class="bio">
+    <p>I'm a student at <a href="https://www.mit.edu/" target="_blank" rel="noopener">MIT</a> studying electrical engineering with computing.</p>
+    <p>I currently do prosthetic control research with the Biomechatronics Group at MIT Media Lab, working on the hardware and firmware side of how the body's signals get turned into control.</p>
+    <p>Outside of that, I build accessible hardware with MIT's Assistive Technology Club, and I like projects that sit at the intersection of circuits, code, and people — take a look at what I've been working on.</p>
+  </div>
+
+  <div class="contact">
+    <a href="mailto:your.email@mit.edu">your.email@mit.edu</a>
+    <a href="https://github.com/megna10">github.com/megna10</a>
+    <a href="https://linkedin.com/in/yourusername">linkedin.com/in/yourusername</a>
+    <span>Boston, MA</span>
+  </div>
+
+  <footer>
+    Last updated · 2026 · built for GitHub Pages
+  </footer>
+
+</div>
+</body>
+</html>
