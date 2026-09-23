@@ -14,8 +14,9 @@
     />
     <style>
       :root {
-        --paper: #ffffff;
-        --ink: #1a1a1a;
+        --paper: #0d0d0d;
+        --ink: #f0f0f0;
+        --accent: #ffffff;
       }
       * {
         box-sizing: border-box;
@@ -26,12 +27,29 @@
         background: var(--paper);
         color: var(--ink);
         font-family: "EB Garamond", serif;
+        position: relative;
+        overflow-x: hidden;
       }
+
+      /* Canvas Background */
+      #bg-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+      }
+
       .wrap {
+        position: relative;
+        z-index: 1;
         max-width: 640px;
         margin: 0 auto;
-        padding: 64px 24px 100px;
+        padding: 140px 24px 100px;
       }
+
       h1 {
         font-family: "Playfair Display", serif;
         font-weight: 700;
@@ -39,7 +57,9 @@
         letter-spacing: 0.03em;
         text-align: center;
         margin-bottom: 26px;
+        color: var(--accent);
       }
+
       nav.top {
         display: flex;
         justify-content: center;
@@ -50,50 +70,60 @@
       nav.top a {
         color: var(--ink);
         text-decoration: none;
+        opacity: 0.8;
+        transition: opacity 0.2s ease;
       }
       nav.top a.active {
+        opacity: 1;
         text-decoration: underline;
         text-underline-offset: 5px;
       }
       nav.top a:hover {
+        opacity: 1;
         text-decoration: underline;
         text-underline-offset: 5px;
       }
+
       .back {
         display: inline-block;
         margin-bottom: 28px;
         font-size: 0.98rem;
       }
       .back a {
-        color: var(--ink);
+        color: var(--accent);
         text-decoration: underline;
         text-underline-offset: 3px;
       }
+
       h2.ptitle {
         font-family: "Playfair Display", serif;
         font-weight: 700;
         font-size: 1.7rem;
         margin-bottom: 6px;
+        color: var(--accent);
       }
       .meta {
         font-style: italic;
         font-size: 1rem;
         margin-bottom: 12px;
+        opacity: 0.8;
       }
       .repo-link {
         font-size: 0.98rem;
         margin-bottom: 28px;
       }
       .repo-link a {
-        color: var(--ink);
+        color: var(--accent);
         text-decoration: underline;
         text-underline-offset: 3px;
       }
+
       h3 {
         font-family: "Playfair Display", serif;
         font-weight: 600;
         font-size: 1.15rem;
         margin: 26px 0 10px;
+        color: var(--accent);
       }
       p {
         font-size: 1.05rem;
@@ -114,24 +144,44 @@
         font-family: "EB Garamond", serif;
         font-style: italic;
         display: block;
-        background: #f7f7f7;
-        border: 1px solid #eee;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
         padding: 10px 14px;
         margin-bottom: 14px;
         font-size: 0.98rem;
+        color: var(--ink);
+        border-radius: 2px;
+      }
+
+      @media (max-width: 520px) {
+        .wrap {
+          padding-top: 96px;
+        }
+        h1 {
+          font-size: 1.6rem;
+        }
+        nav.top {
+          gap: 20px;
+          font-size: 0.95rem;
+        }
       }
     </style>
   </head>
   <body>
+    <!-- Dark Mode Interactive Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
     <div class="wrap">
       <h1>MEGNA PILLARISETTI</h1>
       <nav class="top">
         <a href="index.html">Home</a>
         <a href="projects.html" class="active">Projects</a>
       </nav>
+
       <div class="back">
         <a href="projects.html">&larr; Back to projects</a>
       </div>
+
       <h2 class="ptitle">Biomechanics Video Segmentation Automation</h2>
       <div class="meta">
         MIT Newman Lab for Biomechanics &middot; Jan. 2026 &ndash; June 2026
@@ -201,7 +251,7 @@
           <strong><code>pose_visualization.py</code></strong> Batch-processes
           MP4 video feeds using MediaPipe Pose Landmarker in video mode to
           extract 2D pixel coordinates for upper-limb joints (shoulder, elbow,
-          wrist). Validates joint visibility thresholds (> 0.5), overlays
+          wrist). Validates joint visibility thresholds (&gt; 0.5), overlays
           skeleton connections, and exports serialized coordinate trajectories
           to NumPy files for kinematic modeling.
         </li>
@@ -216,5 +266,110 @@
         </li>
       </ul>
     </div>
+
+    <script>
+      const canvas = document.getElementById("bg-canvas");
+      const ctx = canvas.getContext("2d");
+
+      let width, height;
+      let particles = [];
+      const particleCount = 60;
+      const maxDistance = 150;
+
+      let mouse = { x: null, y: null, radius: 180 };
+
+      window.addEventListener("mousemove", (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      window.addEventListener("mouseleave", () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.8;
+          this.vy = (Math.random() - 0.5) * 0.8;
+          this.radius = Math.random() * 2 + 1;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        resize();
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < maxDistance) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${0.25 * (1 - dist / maxDistance)})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+
+          if (mouse.x !== null && mouse.y !== null) {
+            const mdx = particles[i].x - mouse.x;
+            const mdy = particles[i].y - mouse.y;
+            const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+
+            if (mdist < mouse.radius) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${0.4 * (1 - mdist / mouse.radius)})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      window.addEventListener("resize", resize);
+      init();
+      animate();
+    </script>
   </body>
 </html>
