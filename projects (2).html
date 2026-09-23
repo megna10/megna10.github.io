@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Megna Pillarisetti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFFFF;
+  --ink:#1A1A1A;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'EB Garamond', serif;
+}
+.wrap{max-width:640px;margin:0 auto;padding:64px 24px 100px;}
+
+h1{
+  font-family:'Playfair Display', serif;
+  font-weight:700;
+  font-size:2.1rem;
+  letter-spacing:.03em;
+  text-align:center;
+  margin-bottom:26px;
+}
+
+nav.top{
+  display:flex; justify-content:center; gap:32px;
+  margin-bottom:56px;
+  font-size:1.05rem;
+}
+nav.top a{color:var(--ink); text-decoration:none;}
+nav.top a.active{text-decoration:underline; text-underline-offset:5px;}
+nav.top a:hover{text-decoration:underline; text-underline-offset:5px;}
+
+.project{margin-bottom:44px;}
+.project-photo{
+  width:100%;
+  aspect-ratio:900/560;
+  background:#F0F0F0;
+  border:1px solid #ddd;
+  margin-bottom:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.project-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+.project-photo span{
+  font-family:'EB Garamond', serif;
+  font-style:italic;
+  color:#999;
+  font-size:.95rem;
+}
+.project-title{
+  font-family:'Playfair Display', serif;
+  font-weight:700;
+  font-size:1.3rem;
+  margin-bottom:4px;
+}
+.project-meta{
+  font-style:italic;
+  font-size:.98rem;
+  margin-bottom:10px;
+  color:var(--ink);
+}
+.project-desc{
+  font-size:1.05rem;
+  line-height:1.65;
+  text-align:justify;
+  margin-bottom:8px;
+}
+.project-desc a, .project-links a{color:var(--ink); text-decoration:underline; text-underline-offset:3px;}
+.project-links{font-size:.98rem;}
+.project-links span.sep{margin:0 6px;}
+
+hr{border:none; border-top:1px solid #ddd; margin:36px 0;}
+
+@media(max-width:520px){
+  h1{font-size:1.6rem;}
+  nav.top{gap:20px; font-size:.95rem;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>MEGNA PILLARISETTI</h1>
+
+  <nav class="top">
+    <a href="index.html">Home</a>
+    <a href="projects.html" class="active">Projects</a>
+  </nav>
+
+  <div class="project">
+    <div class="project-photo"><img src="project1.jpg" alt="Lightmyography Prosthetic Armband" onerror="this.style.display='none'; this.parentElement.innerHTML='&lt;span&gt;project1.jpg&lt;/span&gt;'"></div>
+    <div class="project-title">Lightmyography Prosthetic Armband</div>
+    <div class="project-meta">MIT Biomechatronics Group · June 2026 – Present</div>
+    <div class="project-desc">A wearable sensing system that interprets forearm muscle activity using reflected infrared light — a non-invasive alternative to EMG — to generate control signals for a prosthetic hand.</div>
+    <div class="project-links"><a href="lightmyography.html">More info</a></div>
+  </div>
+
+  <hr>
+
+  <div class="project">
+    <div class="project-photo"><img src="project2.jpg" alt="Adaptive Gaming Controller" onerror="this.style.display='none'; this.parentElement.innerHTML='&lt;span&gt;project2.jpg&lt;/span&gt;'"></div>
+    <div class="project-title">Adaptive Gaming Controller</div>
+    <div class="project-meta">MIT Assistive Technology Club · Feb. 2026 – Present</div>
+    <div class="project-desc">An accessible gaming interface built around custom footpedals, reshaped gamepads, and digital joystick emulation, interfacing directly with a PS5 DualSense controller for a user with limited arm and finger mobility.</div>
+    <div class="project-links"><a href="gaming-controller.html">More info</a></div>
+  </div>
+
+  <hr>
+
+  <div class="project">
+    <div class="project-photo"><img src="project3.jpg" alt="Biomechanics Video Segmentation Automation" onerror="this.style.display='none'; this.parentElement.innerHTML='&lt;span&gt;project3.jpg&lt;/span&gt;'"></div>
+    <div class="project-title">Biomechanics Video Segmentation Automation</div>
+    <div class="project-meta">MIT Newman Lab for Biomechanics · Jan. 2026 – June 2026</div>
+    <div class="project-desc">An automated computer vision pipeline using MediaPipe and OpenCV that eliminates manual annotation across large-scale arm-manipulation video datasets, tracking kinematics and cutting synchronized dual-camera clips.</div>
+    <div class="project-links"><a href="video-segmentation.html">More info</a></div>
+  </div>
+
+  <hr>
+
+  <div class="project">
+    <div class="project-photo"><img src="project4.jpg" alt="Data Center Power Simulator" onerror="this.style.display='none'; this.parentElement.innerHTML='&lt;span&gt;project4.jpg&lt;/span&gt;'"></div>
+    <div class="project-title">Data Center Power Consumption Simulator</div>
+    <div class="project-meta">MIT Laboratory for Information and Decision Systems · June 2026 – Sept. 2026</div>
+    <div class="project-desc">A Python framework translating time-varying compute workloads into realistic 24-hour data center electrical load profiles, with an interactive Streamlit dashboard for facility and hardware configuration.</div>
+    <div class="project-links"><a href="power-simulator.html">More info</a></div>
+  </div>
+
+  <hr>
+
+  <div class="project">
+    <div class="project-photo"><img src="project5.jpg" alt="StudySpot" onerror="this.style.display='none'; this.parentElement.innerHTML='&lt;span&gt;project5.jpg&lt;/span&gt;'"></div>
+    <div class="project-title">StudySpot</div>
+    <div class="project-meta">MIT Web.lab · Jan. 2026 · Hackathon Semifinalist</div>
+    <div class="project-desc">A MERN-stack platform for discovering and reviewing study spots, with an interactive map and authentication. Built with a partner and presented to earn semifinalist recognition among ~30 teams.</div>
+    <div class="project-links"><a href="studyspot.html">More info</a></div>
+  </div>
+
+</div>
+</body>
+</html>

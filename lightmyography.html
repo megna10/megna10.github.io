@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lightmyography Prosthetic Armband — Megna Pillarisetti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FFFFFF;--ink:#1A1A1A;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:'EB Garamond', serif;}
+.wrap{max-width:640px;margin:0 auto;padding:64px 24px 100px;}
+h1{font-family:'Playfair Display', serif;font-weight:700;font-size:2.1rem;letter-spacing:.03em;text-align:center;margin-bottom:26px;}
+nav.top{display:flex;justify-content:center;gap:32px;margin-bottom:56px;font-size:1.05rem;}
+nav.top a{color:var(--ink);text-decoration:none;}
+nav.top a.active{text-decoration:underline;text-underline-offset:5px;}
+nav.top a:hover{text-decoration:underline;text-underline-offset:5px;}
+.back{display:inline-block;margin-bottom:28px;font-size:.98rem;}
+.back a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
+h2.ptitle{font-family:'Playfair Display', serif;font-weight:700;font-size:1.7rem;margin-bottom:6px;}
+.meta{font-style:italic;font-size:1rem;margin-bottom:28px;}
+h3{font-family:'Playfair Display', serif;font-weight:600;font-size:1.15rem;margin:26px 0 10px;}
+p{font-size:1.05rem;line-height:1.65;text-align:justify;margin-bottom:14px;}
+ul{margin:0 0 14px 22px;}
+li{font-size:1.05rem;line-height:1.6;margin-bottom:8px;}
+code, .flow{font-family:'EB Garamond', serif;font-style:italic;display:block;background:#F7F7F7;border:1px solid #eee;padding:10px 14px;margin-bottom:14px;font-size:.98rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>MEGNA PILLARISETTI</h1>
+<nav class="top">
+<a href="index.html">Home</a>
+<a href="projects.html" class="active">Projects</a>
+</nav>
+<div class="back"><a href="projects.html">&larr; Back to projects</a></div>
+<h2 class="ptitle">Lightmyography Prosthetic Armband</h2>
+<div class="meta">MIT Biomechatronics Group &middot; June 2026 &ndash; Present</div>
+
+<h3>Overview</h3>
+<p>I am developing a wearable sensing system designed to interpret muscle activity in the forearm and translate it into control signals for a prosthetic hand.</p>
+<p>The project explores lightmyography (LMG) as a non-invasive muscle-sensing approach. Rather than relying exclusively on electrical activity from muscles, the system investigates how changes in muscle tissue and contraction can be detected optically.</p>
+<p>The long-term goal is to create a compact forearm-worn interface capable of recognizing intentional hand and wrist movements and using that information as an input for prosthetic control. I became particularly interested in LMG because it offers the possibility of a wearable interface that can collect spatial information across the forearm while remaining relatively compact. One of the most important lessons from this research has been that signal quality is only part of the problem &mdash; a wearable interface also has to deal with changes in positioning, pressure, movement, individual anatomy, and day-to-day variability.</p>
+<h3>Prototype Development</h3>
+<p>This stage has involved building and testing the electronics needed to capture and process optical muscle signals, including phototransistors, infrared (IR) LEDs, op-amps, analog signal conditioning, and analog-to-digital conversion on an ESP32-based acquisition system. I designed the circuit schematics in KiCad, and I'm developing firmware in C++ to control the IR light output and test whether the phototransistors can read the resulting values.</p>
+<div class="flow">IR LED &rarr; forearm &rarr; phototransistor &rarr; analog amplification / filtering &rarr; ESP32 ADC</div>
+<p>I've also been working on the physical design of the sensor setup, including light isolation and consistent contact with the forearm, to improve the reliability of the measurements.</p>
+
+</div>
+</body>
+</html>
