@@ -1,60 +1,240 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Data Center Power Consumption Simulator — Megna Pillarisetti</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<style>
-:root{--paper:#FFFFFF;--ink:#1A1A1A;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--paper);color:var(--ink);font-family:'EB Garamond', serif;}
-.wrap{max-width:640px;margin:0 auto;padding:64px 24px 100px;}
-h1{font-family:'Playfair Display', serif;font-weight:700;font-size:2.1rem;letter-spacing:.03em;text-align:center;margin-bottom:26px;}
-nav.top{display:flex;justify-content:center;gap:32px;margin-bottom:56px;font-size:1.05rem;}
-nav.top a{color:var(--ink);text-decoration:none;}
-nav.top a.active{text-decoration:underline;text-underline-offset:5px;}
-nav.top a:hover{text-decoration:underline;text-underline-offset:5px;}
-.back{display:inline-block;margin-bottom:28px;font-size:.98rem;}
-.back a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
-h2.ptitle{font-family:'Playfair Display', serif;font-weight:700;font-size:1.7rem;margin-bottom:6px;}
-.meta{font-style:italic;font-size:1rem;margin-bottom:28px;}
-h3{font-family:'Playfair Display', serif;font-weight:600;font-size:1.15rem;margin:26px 0 10px;}
-p{font-size:1.05rem;line-height:1.65;text-align:justify;margin-bottom:14px;}
-ul{margin:0 0 14px 22px;}
-li{font-size:1.05rem;line-height:1.6;margin-bottom:8px;}
-code, .flow{font-family:'EB Garamond', serif;font-style:italic;display:block;background:#F7F7F7;border:1px solid #eee;padding:10px 14px;margin-bottom:14px;font-size:.98rem;}
-</style>
-</head>
-<body>
-<div class="wrap">
-<h1>MEGNA PILLARISETTI</h1>
-<nav class="top">
-<a href="index.html">Home</a>
-<a href="projects.html" class="active">Projects</a>
-</nav>
-<div class="back"><a href="projects.html">&larr; Back to projects</a></div>
-<h2 class="ptitle">Data Center Power Consumption Simulator</h2>
-<div class="meta">MIT Laboratory for Information and Decision Systems &middot; June 2026 &ndash; Sept. 2026</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Data Center Power Consumption Simulator — Megna Pillarisetti</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #ffffff;
+        --ink: #1a1a1a;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "EB Garamond", serif;
+      }
+      .wrap {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 64px 24px 100px;
+      }
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 2.1rem;
+        letter-spacing: 0.03em;
+        text-align: center;
+        margin-bottom: 26px;
+      }
+      nav.top {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 56px;
+        font-size: 1.05rem;
+      }
+      nav.top a {
+        color: var(--ink);
+        text-decoration: none;
+      }
+      nav.top a.active {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
+      nav.top a:hover {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
+      .back {
+        display: inline-block;
+        margin-bottom: 28px;
+        font-size: 0.98rem;
+      }
+      .back a {
+        color: var(--ink);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      h2.ptitle {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 1.7rem;
+        margin-bottom: 6px;
+      }
+      .meta {
+        font-style: italic;
+        font-size: 1rem;
+        margin-bottom: 28px;
+      }
+      h3 {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: 1.15rem;
+        margin: 26px 0 10px;
+      }
+      p {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        text-align: justify;
+        margin-bottom: 14px;
+      }
+      ul {
+        margin: 0 0 14px 22px;
+      }
+      li {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-bottom: 8px;
+      }
+      code,
+      .flow {
+        font-family: "EB Garamond", serif;
+        font-style: italic;
+        display: block;
+        background: #f7f7f7;
+        border: 1px solid #eee;
+        padding: 10px 14px;
+        margin-bottom: 14px;
+        font-size: 0.98rem;
+      }
+      /* Simulation Screenshots Styling */
+      .sim-figure {
+        margin: 24px 0;
+        text-align: center;
+      }
+      .sim-img {
+        width: 100%;
+        height: auto;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        display: block;
+      }
+      figcaption {
+        font-style: italic;
+        font-size: 0.92rem;
+        color: #555;
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>MEGNA PILLARISETTI</h1>
+      <nav class="top">
+        <a href="index.html">Home</a>
+        <a href="projects.html" class="active">Projects</a>
+      </nav>
+      <div class="back">
+        <a href="projects.html">&larr; Back to projects</a>
+      </div>
+      <h2 class="ptitle">Data Center Power Consumption Simulator</h2>
+      <div class="meta">
+        MIT Laboratory for Information and Decision Systems &middot; June 2026
+        &ndash; Sept. 2026
+      </div>
+      <div class="repo-link">
+        <a
+          href="https://github.com/megna10/DataCenterLoadProfiling"
+          target="_blank"
+          rel="noopener noreferrer"
+          >&rarr; View Repository on GitHub</a
+        >
+      </div>
 
-<h3>Overview</h3>
-<p>Engineered a Python framework to translate time-varying compute workloads into realistic 24-hour data center electrical load profiles. The system bridges software activity and physical facility infrastructure, providing a configurable tool for analyzing how different computational workloads and deployment architectures impact grid demand.</p>
-<h3>Key Accomplishments &amp; Engineering Work</h3>
-<ul>
-<li><strong>Multi-Tier Power Pipeline:</strong> Developed an end-to-end modeling pipeline mapping raw activity traces through a physics-based power chain &mdash; workload trace &rarr; server utilization &rarr; server IT power &rarr; cluster IT power &rarr; total facility power (via PUE).</li>
-<li><strong>Hardware &amp; Facility Modeling:</strong> Built parametric models combining baseline server power states (idle and peak) with adjustable facility Power Usage Effectiveness (PUE) to quantify non-IT overhead such as cooling, UPS losses, and distribution.</li>
-<li><strong>Multi-Workload &amp; Architecture Support:</strong> Characterized 5 distinct workload classes &mdash; General Compute, Storage, Batch Analytics, AI Inference, and LLM Training &mdash; across 5 facility deployment environments, from enterprise to hyperscale AI and edge.</li>
-<li><strong>Interactive Simulation Dashboard:</strong> Built a Streamlit web application allowing real-time parameter configuration, 24-hour time-series visualization, and instant calculation of peak demand, daily energy, and load factor.</li>
-</ul>
-<h3>Tech Stack &amp; Tools</h3>
-<ul>
-<li><strong>Language &amp; Core Libraries:</strong> Python, NumPy, Pandas, SciPy</li>
-<li><strong>Visualization &amp; Interface:</strong> Streamlit, Plotly / Matplotlib</li>
-<li><strong>Domain Concepts:</strong> Data center infrastructure, Power Usage Effectiveness (PUE), hardware power modeling, workload trace characterization</li>
-</ul>
+      <h3>Overview</h3>
+      <p>
+        Engineered a Python framework to translate time-varying compute
+        workloads into realistic 24-hour data center electrical load profiles.
+        The system bridges software activity and physical facility
+        infrastructure, providing a configurable tool for analyzing how
+        different computational workloads and deployment architectures impact
+        grid demand.
+      </p>
 
-</div>
-</body>
+      <!-- Dashboard Overview Image -->
+      <figure class="sim-figure">
+        <img
+          src="dc home.png"
+          alt="Data Center Power Simulator Interface showing power summary metrics and sidebar setup"
+          class="sim-img"
+        />
+        <figcaption>
+          Interactive simulation dashboard displaying power summary metrics, PUE
+          calculations, and facility parameter sidebar.
+        </figcaption>
+      </figure>
+
+      <h3>Key Accomplishments &amp; Engineering Work</h3>
+      <ul>
+        <li>
+          <strong>Multi-Tier Power Pipeline:</strong> Developed an end-to-end
+          modeling pipeline mapping raw activity traces through a physics-based
+          power chain &mdash; workload trace &rarr; server utilization &rarr;
+          server IT power &rarr; cluster IT power &rarr; total facility power
+          (via PUE).
+        </li>
+        <li>
+          <strong>Hardware &amp; Facility Modeling:</strong> Built parametric
+          models combining baseline server power states (idle and peak) with
+          adjustable facility Power Usage Effectiveness (PUE) to quantify non-IT
+          overhead such as cooling, UPS losses, and distribution.
+        </li>
+        <li>
+          <strong>Multi-Workload &amp; Architecture Support:</strong>
+          Characterized 5 distinct workload classes &mdash; General Compute,
+          Storage, Batch Analytics, AI Inference, and LLM Training &mdash;
+          across 5 facility deployment environments, from enterprise to
+          hyperscale AI and edge.
+        </li>
+        <li>
+          <strong>Interactive Simulation Dashboard:</strong> Built a Streamlit
+          web application allowing real-time parameter configuration, 24-hour
+          time-series visualization, and instant calculation of peak demand,
+          daily energy, and load factor.
+        </li>
+      </ul>
+
+      <!-- 24-Hour Power Profile Image -->
+      <figure class="sim-figure">
+        <img
+          src="dc graphs.png"
+          alt="24-Hour Power Profile Graph comparing IT Power vs Facility Power"
+          class="sim-img"
+        />
+        <figcaption>
+          Real-time 24-hour power profile comparing IT Power (blue) against
+          total Facility Power (orange) based on PUE multiplier.
+        </figcaption>
+      </figure>
+
+      <h3>Tech Stack &amp; Tools</h3>
+      <ul>
+        <li>
+          <strong>Language &amp; Libraries:</strong> Python, NumPy, Pandas
+        </li>
+        <li>
+          <strong>Visualization &amp; Interface:</strong> Streamlit, Plotly /
+          Matplotlib
+        </li>
+        <li>
+          <strong>Domain Concepts:</strong> Data center infrastructure, Power
+          Usage Effectiveness (PUE), hardware power modeling, workload trace
+          characterization
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>

@@ -1,96 +1,266 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Megna Pillarisetti</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<style>
-:root{
-  --paper:#FFFFFF;
-  --ink:#1A1A1A;
-  --line:#1A1A1A;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{
-  background:var(--paper);
-  color:var(--ink);
-  font-family:'EB Garamond', serif;
-}
-.wrap{max-width:640px;margin:0 auto;padding:64px 24px 100px;}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Megna Pillarisetti</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #0d0d0d;
+        --ink: #f0f0f0;
+        --accent: #ffffff;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "EB Garamond", serif;
+        position: relative;
+        overflow-x: hidden;
+      }
 
-h1{
-  font-family:'Playfair Display', serif;
-  font-weight:700;
-  font-size:2.1rem;
-  letter-spacing:.03em;
-  text-align:center;
-  margin-bottom:26px;
-}
+      /* Canvas Background */
+      #bg-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+      }
 
-nav.top{
-  display:flex; justify-content:center; gap:32px;
-  margin-bottom:44px;
-  font-size:1.05rem;
-}
-nav.top a{color:var(--ink); text-decoration:none;}
-nav.top a.active{text-decoration:underline; text-underline-offset:5px;}
-nav.top a:hover{text-decoration:underline; text-underline-offset:5px;}
+      .wrap {
+        position: relative;
+        z-index: 1;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 140px 24px 100px; /* Increased top padding to push content down */
+      }
 
-.photo{
-  width:100%;
-  aspect-ratio:900/666;
-  overflow:hidden;
-  margin-bottom:32px;
-}
-.photo img{width:100%; height:100%; object-fit:cover; display:block;}
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 2.1rem;
+        letter-spacing: 0.03em;
+        text-align: center;
+        margin-bottom: 26px;
+        color: var(--accent);
+      }
 
-.bio{
-  font-size:1.08rem;
-  line-height:1.65;
-  text-align:justify;
-}
-.bio a{color:var(--ink); text-decoration:underline; text-underline-offset:3px;}
+      nav.top {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 44px;
+        font-size: 1.05rem;
+      }
+      nav.top a {
+        color: var(--ink);
+        text-decoration: none;
+        opacity: 0.8;
+        transition: opacity 0.2s ease;
+      }
+      nav.top a.active {
+        opacity: 1;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
+      nav.top a:hover {
+        opacity: 1;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
 
-.contacts{
-  margin-top:32px;
-  font-size:1.05rem;
-  text-align:justify;
-}
-.contacts a{color:var(--ink); text-decoration:underline; text-underline-offset:3px;}
-.contacts span.sep{margin:0 6px;}
+      .bio {
+        font-size: 1.08rem;
+        line-height: 1.65;
+        text-align: justify;
+      }
+      .bio a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
 
-@media(max-width:520px){
-  h1{font-size:1.6rem;}
-  nav.top{gap:20px; font-size:.95rem;}
-}
-</style>
-</head>
-<body>
-<div class="wrap">
+      .contacts {
+        margin-top: 32px;
+        font-size: 1.05rem;
+        text-align: justify;
+      }
+      .contacts a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .contacts span.sep {
+        margin: 0 6px;
+        opacity: 0.5;
+      }
 
-  <h1>MEGNA PILLARISETTI</h1>
+      @media (max-width: 520px) {
+        .wrap {
+          padding-top: 96px; /* Adjusted top margin for mobile screens */
+        }
+        h1 {
+          font-size: 1.6rem;
+        }
+        nav.top {
+          gap: 20px;
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Dark Mode Interactive Canvas -->
+    <canvas id="bg-canvas"></canvas>
 
-  <nav class="top">
-    <a href="index.html" class="active">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="resume.html">Resume</a>
-  </nav>
+    <div class="wrap">
+      <h1>MEGNA PILLARISETTI</h1>
 
-  <div class="photo">
-    <img src="photo.jpg" alt="Megna Pillarisetti">
-  </div>
+      <nav class="top">
+        <a href="index.html" class="active">Home</a>
+        <a href="projects.html">Projects</a>
+      </nav>
 
-  <div class="bio">
-    <p>Welcome! I'm a student at <a href="https://www.mit.edu/" target="_blank" rel="noopener">MIT</a> studying electrical engineering with computing. I currently do prosthetic control research with the <a href="#">Biomechatronics Group</a> at MIT Media Lab, working on the hardware and firmware side of how the body's signals get turned into control. Outside of that, I build accessible hardware with MIT's Assistive Technology Club, and I like projects that sit at the intersection of circuits, code, and people. For more, see my <a href="resume.html">resume</a>.</p>
-  </div>
+      <div class="bio">
+        <p>
+          Hi, my name is Megna Pillarisetti! I'm a sophomore at
+          <a href="https://www.mit.edu/" target="_blank" rel="noopener">MIT</a>
+          studying electrical engineering with computing. I currently do
+          prosthetic control research with the
+          <a href="#">Biomechatronics Group</a> at MIT Media Lab, working on the
+          hardware and firmware side of how the body's signals get turned into
+          control. Outside of that, I build accessible hardware with MIT's
+          Assistive Technology Club, and I like projects that sit at the
+          intersection of circuits, code, and people. For more, see my
+          <a href="resume.html">resume</a>.
+        </p>
+      </div>
 
-  <div class="contacts">
-    <a href="mailto:your.email@mit.edu">your.email@mit.edu</a><span class="sep">·</span><a href="https://github.com/megna10">GitHub</a><span class="sep">·</span><a href="https://linkedin.com/in/yourusername">LinkedIn</a>
-  </div>
+      <div class="contacts">
+        <a href="mailto:megna@mit.edu">megna@mit.edu</a
+        ><span class="sep">·</span
+        ><a href="https://github.com/megna10">GitHub</a
+        ><span class="sep">·</span
+        ><a href="https://www.linkedin.com/in/megna-pillarisetti/">LinkedIn</a>
+      </div>
+    </div>
 
-</div>
-</body>
+    <script>
+      const canvas = document.getElementById("bg-canvas");
+      const ctx = canvas.getContext("2d");
+
+      let width, height;
+      let particles = [];
+      const particleCount = 60;
+      const maxDistance = 150;
+
+      let mouse = { x: null, y: null, radius: 180 };
+
+      window.addEventListener("mousemove", (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      window.addEventListener("mouseleave", () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.8;
+          this.vy = (Math.random() - 0.5) * 0.8;
+          this.radius = Math.random() * 2 + 1;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        resize();
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < maxDistance) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${0.25 * (1 - dist / maxDistance)})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+
+          if (mouse.x !== null && mouse.y !== null) {
+            const mdx = particles[i].x - mouse.x;
+            const mdy = particles[i].y - mouse.y;
+            const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+
+            if (mdist < mouse.radius) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${0.4 * (1 - mdist / mouse.radius)})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      window.addEventListener("resize", resize);
+      init();
+      animate();
+    </script>
+  </body>
 </html>

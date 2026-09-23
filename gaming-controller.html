@@ -1,62 +1,196 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Adaptive Gaming Controller — Megna Pillarisetti</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<style>
-:root{--paper:#FFFFFF;--ink:#1A1A1A;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--paper);color:var(--ink);font-family:'EB Garamond', serif;}
-.wrap{max-width:640px;margin:0 auto;padding:64px 24px 100px;}
-h1{font-family:'Playfair Display', serif;font-weight:700;font-size:2.1rem;letter-spacing:.03em;text-align:center;margin-bottom:26px;}
-nav.top{display:flex;justify-content:center;gap:32px;margin-bottom:56px;font-size:1.05rem;}
-nav.top a{color:var(--ink);text-decoration:none;}
-nav.top a.active{text-decoration:underline;text-underline-offset:5px;}
-nav.top a:hover{text-decoration:underline;text-underline-offset:5px;}
-.back{display:inline-block;margin-bottom:28px;font-size:.98rem;}
-.back a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
-h2.ptitle{font-family:'Playfair Display', serif;font-weight:700;font-size:1.7rem;margin-bottom:6px;}
-.meta{font-style:italic;font-size:1rem;margin-bottom:28px;}
-h3{font-family:'Playfair Display', serif;font-weight:600;font-size:1.15rem;margin:26px 0 10px;}
-p{font-size:1.05rem;line-height:1.65;text-align:justify;margin-bottom:14px;}
-ul{margin:0 0 14px 22px;}
-li{font-size:1.05rem;line-height:1.6;margin-bottom:8px;}
-code, .flow{font-family:'EB Garamond', serif;font-style:italic;display:block;background:#F7F7F7;border:1px solid #eee;padding:10px 14px;margin-bottom:14px;font-size:.98rem;}
-</style>
-</head>
-<body>
-<div class="wrap">
-<h1>MEGNA PILLARISETTI</h1>
-<nav class="top">
-<a href="index.html">Home</a>
-<a href="projects.html" class="active">Projects</a>
-</nav>
-<div class="back"><a href="projects.html">&larr; Back to projects</a></div>
-<h2 class="ptitle">Adaptive Gaming Controller</h2>
-<div class="meta">MIT Assistive Technology Club &middot; Feb. 2026 &ndash; Present</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Adaptive Gaming Controller — Megna Pillarisetti</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #ffffff;
+        --ink: #1a1a1a;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "EB Garamond", serif;
+      }
+      .wrap {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 64px 24px 100px;
+      }
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 2.1rem;
+        letter-spacing: 0.03em;
+        text-align: center;
+        margin-bottom: 26px;
+      }
+      nav.top {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 56px;
+        font-size: 1.05rem;
+      }
+      nav.top a {
+        color: var(--ink);
+        text-decoration: none;
+      }
+      nav.top a.active {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
+      nav.top a:hover {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
+      .back {
+        display: inline-block;
+        margin-bottom: 28px;
+        font-size: 0.98rem;
+      }
+      .back a {
+        color: var(--ink);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      h2.ptitle {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 1.7rem;
+        margin-bottom: 6px;
+      }
+      .meta {
+        font-style: italic;
+        font-size: 1rem;
+        margin-bottom: 28px;
+      }
+      h3 {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: 1.15rem;
+        margin: 26px 0 10px;
+      }
+      p {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        text-align: justify;
+        margin-bottom: 14px;
+      }
+      ul {
+        margin: 0 0 14px 22px;
+      }
+      li {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-bottom: 8px;
+      }
+      code,
+      .flow {
+        font-family: "EB Garamond", serif;
+        font-style: italic;
+        display: block;
+        background: #f7f7f7;
+        border: 1px solid #eee;
+        padding: 10px 14px;
+        margin-bottom: 14px;
+        font-size: 0.98rem;
+      }
+      .img-container {
+        margin: 20px 0;
+        text-align: center;
+      }
+      .img-container img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #eee;
+        display: block;
+        margin: 0 auto;
+      }
+      .img-caption {
+        font-style: italic;
+        font-size: 0.9rem;
+        color: #555;
+        margin-top: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>MEGNA PILLARISETTI</h1>
+      <nav class="top">
+        <a href="index.html">Home</a>
+        <a href="projects.html" class="active">Projects</a>
+      </nav>
+      <div class="back">
+        <a href="projects.html">&larr; Back to projects</a>
+      </div>
+      <h2 class="ptitle">Adaptive Gaming Controller</h2>
+      <div class="meta">MIT Assistive Technology Club</div>
 
-<h3>Overview</h3>
-<p>Co-designed and engineered an accessible gaming hardware interface tailored for a user with limited arm and finger mobility. The project bridges physical ergonomic inputs &mdash; including custom footpedals, reshaped gamepads, and digital joystick emulation &mdash; with a Sony PS5 DualSense controller to restore full gaming capability.</p>
-<h3>Hardware Architecture &amp; Engineering Highlights</h3>
-<ul>
-<li><strong>KiCad Schematic &amp; Electronics Design:</strong> Engineered a central control board around an ESP32-S3 microcontroller to manage low-latency input acquisition and signal translation.</li>
-<li><strong>Digital Joystick Emulation:</strong> Integrated MCP4251 digital potentiometers via SPI to dynamically translate custom physical joystick and pedal inputs into native analog voltages recognized by the console.</li>
-<li><strong>Motion &amp; Auxiliary Sensing:</strong> Embedded a BNO055 9-DOF IMU via I&sup2;C to convert physical footpedal rotation into tilt-assisted control axes.</li>
-<li><strong>Audio &amp; Feedback Pipeline:</strong> Incorporated a MAX98357A I&sup2;S audio amplifier driving an onboard speaker, and a SPH0645LM4H MEMS microphone for voice-assisted commands and audio cues.</li>
-<li><strong>Console Hardware Interfacing:</strong> Reverse-engineered stock PS5 DualSense controller PCB signal lines to solder and map external microswitches, digital pots, and toggle controls directly onto the console's native PCB.</li>
-</ul>
-<h3>Technical Stack &amp; Tools</h3>
-<ul>
-<li><strong>EDA &amp; PCB Design:</strong> KiCad (schematic capture, component selection, signal routing)</li>
-<li><strong>Embedded Hardware:</strong> ESP32-S3, MCP4251, BNO055, MAX98357A, SPH0645LM4H</li>
-<li><strong>Communication Protocols:</strong> SPI, I&sup2;C, I&sup2;S, GPIO hardware interrupts</li>
-<li><strong>Prototyping &amp; Tools:</strong> DualSense signal mapping, oscilloscope signal verification, breadboard validation</li>
-</ul>
+      <!-- Project Poster Section -->
+      <div class="img-container">
+        <img src="Poset.png" alt="Adaptive Gaming Controller Project Poster" />
+        <div class="img-caption">Project Overview Poster</div>
+      </div>
 
-</div>
-</body>
+      <h3>Overview</h3>
+      <p>
+        Co-designed and engineered an accessible gaming hardware interface
+        tailored for a user with limited arm and finger mobility. The project
+        bridges physical ergonomic inputs, including custom footpedals, reshaped
+        gamepads, and digital joystick emulation, with a Sony PS5 DualSense
+        controller to restore full gaming capability.
+      </p>
+
+      <h3>Hardware Architecture &amp; Engineering Highlights</h3>
+      <ul>
+        <li>
+          <strong>KiCad Schematic &amp; Electronics Design:</strong> Engineered
+          a central control board around an ESP32-S3 microcontroller to manage
+          low-latency input acquisition and signal translation.
+        </li>
+        <li>
+          <strong>Digital Joystick Emulation:</strong> Integrated MCP4251
+          digital potentiometers to dynamically translate custom physical
+          joystick inputs into analog voltages recognized by the console.
+        </li>
+        <li>
+          <strong>Console Hardware Interfacing:</strong> Currently
+          reverse-engineering PS5 DualSense controller PCB signal lines to
+          solder and map external microswitches, digital pots, and toggle
+          controls directly onto the console's native PCB.
+        </li>
+      </ul>
+
+      <!-- Circuit Schematic Section -->
+      <h3>Schematic &amp; Circuit Diagram</h3>
+      <div class="img-container">
+        <img src="Schematic.png" alt="KiCad Electronics Schematic Diagram" />
+        <div class="img-caption">Board Schematic</div>
+      </div>
+
+      <h3>Technical Stack &amp; Tools</h3>
+      <ul>
+        <li><strong>Design:</strong> KiCad (schematics)</li>
+        <li>
+          <strong>Embedded Hardware:</strong> ESP32-S3, MCP4251, BNO055,
+          MAX98357A, SPH0645LM4H
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>

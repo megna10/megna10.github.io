@@ -1,149 +1,345 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Projects — Megna Pillarisetti</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<style>
-:root{
-  --paper:#FFFFFF;
-  --ink:#1A1A1A;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{
-  background:var(--paper);
-  color:var(--ink);
-  font-family:'EB Garamond', serif;
-}
-.wrap{max-width:640px;margin:0 auto;padding:64px 24px 100px;}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects — Megna Pillarisetti</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #0d0d0d;
+        --ink: #f0f0f0;
+        --accent: #ffffff;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "EB Garamond", serif;
+        position: relative;
+        overflow-x: hidden;
+      }
 
-h1{
-  font-family:'Playfair Display', serif;
-  font-weight:700;
-  font-size:2.1rem;
-  letter-spacing:.03em;
-  text-align:center;
-  margin-bottom:26px;
-}
+      /* Canvas Background */
+      #bg-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+      }
 
-nav.top{
-  display:flex; justify-content:center; gap:32px;
-  margin-bottom:56px;
-  font-size:1.05rem;
-}
-nav.top a{color:var(--ink); text-decoration:none;}
-nav.top a.active{text-decoration:underline; text-underline-offset:5px;}
-nav.top a:hover{text-decoration:underline; text-underline-offset:5px;}
+      .wrap {
+        position: relative;
+        z-index: 1;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 140px 24px 100px;
+      }
 
-.project{margin-bottom:44px;}
-.project-photo{
-  width:100%;
-  aspect-ratio:900/560;
-  background:#F0F0F0;
-  border:1px solid #ddd;
-  margin-bottom:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.project-photo img{width:100%; height:100%; object-fit:cover; display:block;}
-.project-photo span{
-  font-family:'EB Garamond', serif;
-  font-style:italic;
-  color:#999;
-  font-size:.95rem;
-}
-.project-title{
-  font-family:'Playfair Display', serif;
-  font-weight:700;
-  font-size:1.3rem;
-  margin-bottom:4px;
-}
-.project-meta{
-  font-style:italic;
-  font-size:.98rem;
-  margin-bottom:10px;
-  color:var(--ink);
-}
-.project-desc{
-  font-size:1.05rem;
-  line-height:1.65;
-  text-align:justify;
-  margin-bottom:8px;
-}
-.project-desc a, .project-links a{color:var(--ink); text-decoration:underline; text-underline-offset:3px;}
-.project-links{font-size:.98rem;}
-.project-links span.sep{margin:0 6px;}
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 2.1rem;
+        letter-spacing: 0.03em;
+        text-align: center;
+        margin-bottom: 26px;
+        color: var(--accent);
+      }
 
-hr{border:none; border-top:1px solid #ddd; margin:36px 0;}
+      nav.top {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 56px;
+        font-size: 1.05rem;
+      }
+      nav.top a {
+        color: var(--ink);
+        text-decoration: none;
+        opacity: 0.8;
+        transition: opacity 0.2s ease;
+      }
+      nav.top a.active {
+        opacity: 1;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
+      nav.top a:hover {
+        opacity: 1;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
 
-@media(max-width:520px){
-  h1{font-size:1.6rem;}
-  nav.top{gap:20px; font-size:.95rem;}
-}
-</style>
-</head>
-<body>
-<div class="wrap">
+      .project {
+        margin-bottom: 44px;
+      }
+      .project-title {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin-bottom: 4px;
+        color: var(--accent);
+      }
+      .project-meta {
+        font-style: italic;
+        font-size: 0.98rem;
+        margin-bottom: 10px;
+        color: var(--ink);
+        opacity: 0.8;
+      }
+      .project-desc {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        text-align: justify;
+        margin-bottom: 8px;
+      }
+      .project-desc a,
+      .project-links a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .project-links {
+        font-size: 0.98rem;
+      }
+      .project-links span.sep {
+        margin: 0 6px;
+        opacity: 0.5;
+      }
 
-  <h1>MEGNA PILLARISETTI</h1>
+      hr {
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        margin: 36px 0;
+      }
 
-  <nav class="top">
-    <a href="index.html">Home</a>
-    <a href="projects.html" class="active">Projects</a>
-  </nav>
+      @media (max-width: 520px) {
+        .wrap {
+          padding-top: 96px;
+        }
+        h1 {
+          font-size: 1.6rem;
+        }
+        nav.top {
+          gap: 20px;
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Dark Mode Interactive Canvas -->
+    <canvas id="bg-canvas"></canvas>
 
-  <div class="project">
-    <div class="project-photo"><img src="project1.jpg" alt="Lightmyography Prosthetic Armband" onerror="this.style.display='none'; this.parentElement.innerHTML='&lt;span&gt;project1.jpg&lt;/span&gt;'"></div>
-    <div class="project-title">Lightmyography Prosthetic Armband</div>
-    <div class="project-meta">MIT Biomechatronics Group · June 2026 – Present</div>
-    <div class="project-desc">A wearable sensing system that interprets forearm muscle activity using reflected infrared light — a non-invasive alternative to EMG — to generate control signals for a prosthetic hand.</div>
-    <div class="project-links"><a href="lightmyography.html">More info</a></div>
-  </div>
+    <div class="wrap">
+      <h1>MEGNA PILLARISETTI</h1>
 
-  <hr>
+      <nav class="top">
+        <a href="index.html">Home</a>
+        <a href="projects.html" class="active">Projects</a>
+      </nav>
 
-  <div class="project">
-    <div class="project-photo"><img src="project2.jpg" alt="Adaptive Gaming Controller" onerror="this.style.display='none'; this.parentElement.innerHTML='&lt;span&gt;project2.jpg&lt;/span&gt;'"></div>
-    <div class="project-title">Adaptive Gaming Controller</div>
-    <div class="project-meta">MIT Assistive Technology Club · Feb. 2026 – Present</div>
-    <div class="project-desc">An accessible gaming interface built around custom footpedals, reshaped gamepads, and digital joystick emulation, interfacing directly with a PS5 DualSense controller for a user with limited arm and finger mobility.</div>
-    <div class="project-links"><a href="gaming-controller.html">More info</a></div>
-  </div>
+      <div class="project">
+        <div class="project-title">Lightmyography Prosthetic Armband</div>
+        <div class="project-meta">
+          MIT Biomechatronics Group &middot; June. 2026 - Present
+        </div>
+        <div class="project-desc">
+          Prototyping a Lightmyography armband for prosthetic control, using a
+          3-channel reflected infrared light system to detect changes in forearm
+          muscle activity.
+        </div>
+        <div class="project-links">
+          <a href="lightmyography.html">More info</a>
+        </div>
+      </div>
 
-  <hr>
+      <hr />
 
-  <div class="project">
-    <div class="project-photo"><img src="project3.jpg" alt="Biomechanics Video Segmentation Automation" onerror="this.style.display='none'; this.parentElement.innerHTML='&lt;span&gt;project3.jpg&lt;/span&gt;'"></div>
-    <div class="project-title">Biomechanics Video Segmentation Automation</div>
-    <div class="project-meta">MIT Newman Lab for Biomechanics · Jan. 2026 – June 2026</div>
-    <div class="project-desc">An automated computer vision pipeline using MediaPipe and OpenCV that eliminates manual annotation across large-scale arm-manipulation video datasets, tracking kinematics and cutting synchronized dual-camera clips.</div>
-    <div class="project-links"><a href="video-segmentation.html">More info</a></div>
-  </div>
+      <div class="project">
+        <div class="project-title">Adaptive Gaming Controller</div>
+        <div class="project-meta">
+          MIT Assistive Technology Club &middot; Feb. 2026 - Present
+        </div>
+        <div class="project-desc">
+          An accessible gaming interface built around custom footpedals,
+          reshaped gamepads, and digital joystick emulation. Currently
+          reverse-engineering DualSense PCB signals to map joystick and button
+          inputs for custom hardware interfacing for a user with limited arm and
+          finger mobility.
+        </div>
+        <div class="project-links">
+          <a href="gaming-controller.html">More info</a>
+        </div>
+      </div>
 
-  <hr>
+      <hr />
 
-  <div class="project">
-    <div class="project-photo"><img src="project4.jpg" alt="Data Center Power Simulator" onerror="this.style.display='none'; this.parentElement.innerHTML='&lt;span&gt;project4.jpg&lt;/span&gt;'"></div>
-    <div class="project-title">Data Center Power Consumption Simulator</div>
-    <div class="project-meta">MIT Laboratory for Information and Decision Systems · June 2026 – Sept. 2026</div>
-    <div class="project-desc">A Python framework translating time-varying compute workloads into realistic 24-hour data center electrical load profiles, with an interactive Streamlit dashboard for facility and hardware configuration.</div>
-    <div class="project-links"><a href="power-simulator.html">More info</a></div>
-  </div>
+      <div class="project">
+        <div class="project-title">Data Center Power Consumption Simulator</div>
+        <div class="project-meta">
+          MIT Laboratory for Information and Decision Systems &middot; June 2026
+          – Sept. 2026
+        </div>
+        <div class="project-desc">
+          A Python framework translating time-varying workloads into realistic
+          24-hour data center electrical load profiles, with an interactive
+          Streamlit dashboard for facility and hardware configuration.
+        </div>
+        <div class="project-links">
+          <a href="power-simulator.html">More info</a>
+        </div>
+      </div>
 
-  <hr>
+      <hr />
 
-  <div class="project">
-    <div class="project-photo"><img src="project5.jpg" alt="StudySpot" onerror="this.style.display='none'; this.parentElement.innerHTML='&lt;span&gt;project5.jpg&lt;/span&gt;'"></div>
-    <div class="project-title">StudySpot</div>
-    <div class="project-meta">MIT Web.lab · Jan. 2026 · Hackathon Semifinalist</div>
-    <div class="project-desc">A MERN-stack platform for discovering and reviewing study spots, with an interactive map and authentication. Built with a partner and presented to earn semifinalist recognition among ~30 teams.</div>
-    <div class="project-links"><a href="studyspot.html">More info</a></div>
-  </div>
+      <div class="project">
+        <div class="project-title">
+          Biomechanics Video Segmentation Automation
+        </div>
+        <div class="project-meta">
+          MIT Newman Lab for Biomechanics &middot; Jan. 2026 – June 2026
+        </div>
+        <div class="project-desc">
+          An automated computer vision pipeline using MediaPipe and OpenCV that
+          eliminates manual annotation across large-scale arm-manipulation video
+          datasets, tracking kinematics and cutting synchronized dual-camera
+          clips.
+        </div>
+        <div class="project-links">
+          <a href="video-segmentation.html">More info</a>
+        </div>
+      </div>
 
-</div>
-</body>
+      <hr />
+
+      <div class="project">
+        <div class="project-title">MIT Web.lab</div>
+        <div class="project-meta">Jan. 2026</div>
+        <div class="project-desc">
+          A MERN-stack platform for discovering and reviewing study spots, with
+          an interactive map and authentication. Built with a partner and
+          presented to earn semifinalist recognition among ~30 teams.
+        </div>
+        <div class="project-links"><a href="studyspot.html">More info</a></div>
+      </div>
+    </div>
+
+    <script>
+      const canvas = document.getElementById("bg-canvas");
+      const ctx = canvas.getContext("2d");
+
+      let width, height;
+      let particles = [];
+      const particleCount = 60;
+      const maxDistance = 150;
+
+      let mouse = { x: null, y: null, radius: 180 };
+
+      window.addEventListener("mousemove", (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      window.addEventListener("mouseleave", () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.8;
+          this.vy = (Math.random() - 0.5) * 0.8;
+          this.radius = Math.random() * 2 + 1;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        resize();
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < maxDistance) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${0.25 * (1 - dist / maxDistance)})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+
+          if (mouse.x !== null && mouse.y !== null) {
+            const mdx = particles[i].x - mouse.x;
+            const mdy = particles[i].y - mouse.y;
+            const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+
+            if (mdist < mouse.radius) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${0.4 * (1 - mdist / mouse.radius)})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      window.addEventListener("resize", resize);
+      init();
+      animate();
+    </script>
+  </body>
 </html>

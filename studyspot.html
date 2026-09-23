@@ -1,61 +1,269 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>StudySpot — Megna Pillarisetti</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<style>
-:root{--paper:#FFFFFF;--ink:#1A1A1A;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--paper);color:var(--ink);font-family:'EB Garamond', serif;}
-.wrap{max-width:640px;margin:0 auto;padding:64px 24px 100px;}
-h1{font-family:'Playfair Display', serif;font-weight:700;font-size:2.1rem;letter-spacing:.03em;text-align:center;margin-bottom:26px;}
-nav.top{display:flex;justify-content:center;gap:32px;margin-bottom:56px;font-size:1.05rem;}
-nav.top a{color:var(--ink);text-decoration:none;}
-nav.top a.active{text-decoration:underline;text-underline-offset:5px;}
-nav.top a:hover{text-decoration:underline;text-underline-offset:5px;}
-.back{display:inline-block;margin-bottom:28px;font-size:.98rem;}
-.back a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
-h2.ptitle{font-family:'Playfair Display', serif;font-weight:700;font-size:1.7rem;margin-bottom:6px;}
-.meta{font-style:italic;font-size:1rem;margin-bottom:28px;}
-h3{font-family:'Playfair Display', serif;font-weight:600;font-size:1.15rem;margin:26px 0 10px;}
-p{font-size:1.05rem;line-height:1.65;text-align:justify;margin-bottom:14px;}
-ul{margin:0 0 14px 22px;}
-li{font-size:1.05rem;line-height:1.6;margin-bottom:8px;}
-code, .flow{font-family:'EB Garamond', serif;font-style:italic;display:block;background:#F7F7F7;border:1px solid #eee;padding:10px 14px;margin-bottom:14px;font-size:.98rem;}
-</style>
-</head>
-<body>
-<div class="wrap">
-<h1>MEGNA PILLARISETTI</h1>
-<nav class="top">
-<a href="index.html">Home</a>
-<a href="projects.html" class="active">Projects</a>
-</nav>
-<div class="back"><a href="projects.html">&larr; Back to projects</a></div>
-<h2 class="ptitle">StudySpot</h2>
-<div class="meta">MIT Web.lab &middot; Jan. 2026 &middot; Hackathon Semifinalist (~30 teams)</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MIT.WebLab — Megna Pillarisetti</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #ffffff;
+        --ink: #1a1a1a;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "EB Garamond", serif;
+      }
+      .wrap {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 64px 24px 100px;
+      }
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 2.1rem;
+        letter-spacing: 0.03em;
+        text-align: center;
+        margin-bottom: 26px;
+      }
+      nav.top {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 56px;
+        font-size: 1.05rem;
+      }
+      nav.top a {
+        color: var(--ink);
+        text-decoration: none;
+      }
+      nav.top a.active {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
+      nav.top a:hover {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
+      .back {
+        display: inline-block;
+        margin-bottom: 28px;
+        font-size: 0.98rem;
+      }
+      .back a {
+        color: var(--ink);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      h2.ptitle {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 1.7rem;
+        margin-bottom: 6px;
+      }
+      .meta {
+        font-style: italic;
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+      .links-group {
+        margin-bottom: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .repo-link a {
+        color: var(--ink);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        font-size: 1rem;
+      }
+      .repo-link a:visited {
+        color: var(--ink);
+      }
+      h3 {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: 1.15rem;
+        margin: 26px 0 10px;
+      }
+      p {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        text-align: justify;
+        margin-bottom: 14px;
+      }
+      ul {
+        margin: 0 0 14px 22px;
+      }
+      li {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-bottom: 8px;
+      }
+      code,
+      .flow {
+        font-family: "EB Garamond", serif;
+        font-style: italic;
+        display: block;
+        background: #f7f7f7;
+        border: 1px solid #eee;
+        padding: 10px 14px;
+        margin-bottom: 14px;
+        font-size: 0.98rem;
+      }
+      /* Project Screenshots Styling */
+      .project-figure {
+        margin: 24px 0;
+        text-align: center;
+      }
+      .project-img {
+        width: 100%;
+        height: auto;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        display: block;
+      }
+      figcaption {
+        font-style: italic;
+        font-size: 0.92rem;
+        color: #555;
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>MEGNA PILLARISETTI</h1>
+      <nav class="top">
+        <a href="index.html">Home</a>
+        <a href="projects.html" class="active">Projects</a>
+      </nav>
+      <div class="back">
+        <a href="projects.html">&larr; Back to projects</a>
+      </div>
+      <h2 class="ptitle">MIT.Weblab</h2>
+      <div class="meta">
+        MIT Web.lab &middot; Jan. 2026 &middot; Hackathon Semifinalist (~30
+        teams)
+      </div>
 
-<h3>Overview</h3>
-<p>Co-designed and developed an interactive study spot discovery web platform that helps students and remote workers find, rate, and review local workspaces. The application combines interactive map-based search with real-time spatial filtering, detailed review profiles, and secure user account management.</p>
-<h3>Technical Architecture &amp; Key Accomplishments</h3>
-<ul>
-<li><strong>Interactive Front-End &amp; Mapping:</strong> Built a React interface integrating map features to display nearby study spots with dynamic markers, amenity tags, and real-time location filtering.</li>
-<li><strong>RESTful API &amp; Database Architecture:</strong> Designed a Node.js/Express REST API paired with MongoDB (Mongoose) to efficiently query, update, and manage geospatial location data, user reviews, and rating metrics.</li>
-<li><strong>Authentication &amp; User Management:</strong> Implemented secure user authentication using JSON Web Tokens and bcrypt to manage user profiles, saved spots, and review permissions.</li>
-<li><strong>Deployment &amp; Recognition:</strong> Configured end-to-end continuous deployment on Render for production hosting; earned semifinalist recognition in a showcase competition featuring roughly 30 engineering teams.</li>
-</ul>
-<h3>Technical Stack &amp; Tools</h3>
-<ul>
-<li><strong>Front-End:</strong> React.js, JavaScript (ES6+), HTML5/CSS3, interactive mapping APIs</li>
-<li><strong>Back-End:</strong> Node.js, Express.js, REST APIs, JWT authentication</li>
-<li><strong>Database:</strong> MongoDB, Mongoose ODM</li>
-<li><strong>Deployment &amp; DevOps:</strong> Render, Git/GitHub version control</li>
-</ul>
+      <div class="links-group">
+        <div class="repo-link">
+          <a
+            href="https://megna10-rojinaadhikarii-6.onrender.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >&rarr; View Website on Render</a
+          >
+        </div>
+        <div class="repo-link">
+          <a
+            href="https://github.com/weblab-class/megna10-rojinaadhikarii"
+            target="_blank"
+            rel="noopener noreferrer"
+            >&rarr; View Repository on GitHub</a
+          >
+        </div>
+      </div>
 
-</div>
-</body>
+      <h3>Overview</h3>
+      <p>
+        Co-designed and developed an interactive study spot discovery web
+        platform that helps students and remote workers find, rate, and review
+        local workspaces. The application combines interactive map-based search
+        with real-time spatial filtering, detailed review profiles, and user
+        account management.
+      </p>
+
+      <!-- Flowstate Homepage Image -->
+      <figure class="project-figure">
+        <img
+          src="unnamed (3).png"
+          alt="Flowstate homepage landing view"
+          class="project-img"
+        />
+        <figcaption>
+          Flowstate landing page offering a clean search interface for
+          discovering campus study spots.
+        </figcaption>
+      </figure>
+
+      <h3>Technical Architecture &amp; Key Accomplishments</h3>
+      <ul>
+        <li>
+          <strong>Interactive Front-End &amp; Mapping:</strong> Built a React
+          interface integrating map features to display nearby study spots with
+          dynamic markers, amenity tags, and real-time location filtering.
+        </li>
+        <li>
+          <strong>Database Architecture:</strong> Helped design a
+          Node.js/Express REST API paired with MongoDB (Mongoose) to efficiently
+          query, update, and manage geospatial location data, user reviews, and
+          rating metrics.
+        </li>
+        <li>
+          <strong>Authentication &amp; User Management:</strong> Implemented
+          secure user authentication to manage user profiles, saved spots, and
+          review permissions.
+        </li>
+        <li>
+          <strong>Deployment &amp; Recognition:</strong> Configured end-to-end
+          continuous deployment on Render for production hosting; earned
+          semifinalist recognition in a showcase competition featuring roughly
+          30 engineering teams.
+        </li>
+      </ul>
+
+      <!-- Study Spaces Directory View -->
+      <figure class="project-figure">
+        <img
+          src="unnamed (2).png"
+          alt="Discover study spaces list view showing Stratton Student Center"
+          class="project-img"
+        />
+        <figcaption>
+          Filtered study space directory displaying ratings, location details,
+          and amenity tags like Wi-Fi and outlets.
+        </figcaption>
+      </figure>
+
+      <!-- Interactive Map View -->
+      <figure class="project-figure">
+        <img
+          src="unnamed (1).png"
+          alt="Interactive map view showing location markers across Cambridge"
+          class="project-img"
+        />
+        <figcaption>
+          Interactive map integration plotting workspace pins with real-time
+          geographic filtering across campus.
+        </figcaption>
+      </figure>
+
+      <h3>Technical Stack &amp; Tools</h3>
+      <ul>
+        <li><strong>Front-End:</strong> React.js, JavaScript, HTML/CSS</li>
+        <li><strong>Back-End:</strong> Node.js, Express.js</li>
+        <li><strong>Database:</strong> MongoDB</li>
+        <li>
+          <strong>Deployment &amp; DevOps:</strong> Render, Git/GitHub version
+          control
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>
